@@ -11,7 +11,7 @@ resource "aws_db_instance" "default" {
   instance_class          = "db.t3.micro"
   allocated_storage       = "20"
   username                = "admin"
-  password                = var.password
+  password                = "123123123"
   apply_immediately       = true
   multi_az                = false
   backup_retention_period = 0
@@ -146,7 +146,7 @@ resource "aws_security_group_rule" "egress" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_blocks       = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/8000"]
   security_group_id = "${aws_security_group.default.id}"
 }
 
